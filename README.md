@@ -1,5 +1,7 @@
 # Instruções Gerais
 
+Esta aplicação depende do [servidor MLX rodando](https://github.com/armandossrecife/mlx-llm-server)
+
 ## Dependências
 
 ```bash
@@ -22,6 +24,8 @@ Se não mostrar error e responder a pergunta corretamente o ambiente está ok.
 uv add fastapi uvicorn sqlalchemy pydantic-settings python-jose "bcrypt==4.0.1" passlib httpx
 uv add "pydantic[email]"
 ```
+
+## Execução
 
 ```bash
 cd api-openai
