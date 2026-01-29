@@ -13,7 +13,7 @@ class GenerateRequest(BaseModel):
 class GenerateWithChat(BaseModel):
     model: str
     prompt: str
-    resposta: str
+    resposta: Optional[str] = None
     chat_id: int
     stream: bool = False
     options: Optional[Dict[str, Any]] = None
