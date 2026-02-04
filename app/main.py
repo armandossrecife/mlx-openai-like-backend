@@ -7,8 +7,9 @@ from app.routers.auth import router as auth_router
 from app.routers.chats import router as chats_router
 from app.routers.inference import router as inference_router
 from app.routers.health import router as health_router
+from app.routers.models import router as models_router
 
-app = FastAPI(title="MLX Backend (Auth + Chats)", version="0.1.0")
+app = FastAPI(title="MLX Backend (Auth + Chats)", version="0.1.1")
 
 app.add_middleware(
     CORSMiddleware,
@@ -26,3 +27,4 @@ app.include_router(auth_router)
 app.include_router(chats_router)
 app.include_router(inference_router)
 app.include_router(health_router)
+app.include_router(models_router)
