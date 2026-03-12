@@ -11,7 +11,7 @@ logger = logging.getLogger(__name__)
 
 class MlxClient:
     def __init__(self, base_url: Optional[str] = None, api_key: Optional[str] = None):
-        final_url = base_url or settings.LLM_SERVER_BASE_URL or "http://localhost:8080/v1"
+        final_url = settings.LLM_SERVER_BASE_URL or base_url or "http://localhost:8080/v1"
         
         self.final_url = final_url
         
@@ -21,6 +21,7 @@ class MlxClient:
         )
         
         self.timeout = 30  # Timeout padrão para requisições
+        logger.info(f"Dados do servidor do Modelo LLM: {final_url}")
 
     # Agora retorna str (se stream=False) ou AsyncGenerator (se stream=True)
     async def generate_response(self, pergunta: str, stream: bool = False) -> Union[str, AsyncGenerator[ChatCompletionChunk, None]]:        
