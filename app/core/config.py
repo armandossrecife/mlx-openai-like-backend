@@ -6,7 +6,9 @@ from dotenv import load_dotenv
 load_dotenv()
 
 LLM_SERVER_PORT = os.getenv("LLM_SERVER_PORT", "8080")
-LLM_SERVER_BASE_URL = f"http://localhost:{LLM_SERVER_PORT}/v1"
+AMBIENTE_LOCAL_LLM_SERVER_BASE_URL = f"http://localhost:{LLM_SERVER_PORT}/v1"
+LLM_SERVER_BASE_URL = os.getenv("LLM_SERVER_BASE_URL", AMBIENTE_LOCAL_LLM_SERVER_BASE_URL)
+print(f"LLM_SERVER_BASE_URL: {LLM_SERVER_BASE_URL}")
 DATABASE_URL = os.getenv("DATABASE_URL", "postgresql://user:password@localhost:5432/meubanco")
 print("DATABASE_URL:", DATABASE_URL)
 MODELO_LLM = os.getenv("MODELO_LLM", "mlx-community/Qwen3-4B-Instruct-2507-4bit")
